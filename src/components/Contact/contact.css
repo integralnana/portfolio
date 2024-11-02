@@ -1,0 +1,28 @@
+.contact-section {
+  padding: 20px;
+  animation: fadeIn 2s ease;
+}
+
+form .form-control {
+  transition: border-color 0.3s;
+}
+
+form .form-control:focus {
+  border-color: #007bff;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.pointerText {
+  color: #62617c;
+  text-decoration: underline;
+}
+.pointerText:hover {
+  cursor: pointer;
+  text-decoration: underline #bab4d1 1.5px;
+}

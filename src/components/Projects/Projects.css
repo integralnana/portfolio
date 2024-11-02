@@ -1,0 +1,87 @@
+.projects-section {
+  animation: fadeIn 2s ease;
+}
+
+.project-card {
+  background-color: #0e0b14;
+  cursor: pointer;
+  transition: transform 0.3s;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+}
+
+.project-card:hover {
+  background-color: #1b1729;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal-custom {
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s; /* เพิ่ม transition ของ visibility */
+  opacity: 0; /* เริ่มต้นที่โปร่งใส */
+  transform: translateY(-20px); /* เริ่มต้นที่เลื่อนขึ้น */
+  visibility: hidden; /* เริ่มต้นเป็น hidden */
+}
+
+.modal-custom.show {
+  opacity: 1; /* ปรับให้ทึบเต็มที่เมื่อแสดง */
+  transform: translateY(0); /* คืนค่าการเลื่อนเมื่อแสดง */
+  visibility: visible; /* แสดง modal */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* เปลี่ยน visibility เป็นทันที */
+}
+
+.modal-content {
+  background-color: #0e0b14; /* พื้นหลังสีดำ */
+  color: #fff; /* ฟอนต์เป็นสีขาว */
+}
+.modal-content {
+  background-color: #0e0b14; /* พื้นหลังสีดำ */
+  color: #fff; /* ฟอนต์เป็นสีขาว */
+}
+.modal-footer .btn {
+  background-color: #0f0c14; /* เปลี่ยนสีพื้นหลังของปุ่ม */
+  color: #fff;
+  border: #0f0c14;
+}
+
+.modal-footer .btn:hover{
+  background-color: #2f2c33; /* เปลี่ยนสีพื้นหลังของปุ่ม */
+  color: #fff;
+}
+
+.skills-container {
+  margin-top: 10px;
+}
+.skills-box {
+  background-color: #f8f9fa; /* สีพื้นหลังของกล่อง */
+  color: #000; /* สีข้อความ */
+  font-size: small;
+  padding: 5px 7px; /* ระยะห่างภายใน */
+  border-radius: 10px; /* ขอบมน */
+  font-weight: 500; /* หนักตัวอักษร */
+  transition: background-color 0.3s; /* การเปลี่ยนสีพื้นหลังเมื่อโฮเวอร์ */
+}
+.skills-box:hover {
+  background-color: #babec3; /* สีพื้นหลังเมื่อ hover */
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap; /* เพื่อให้สามารถจัดเรียงได้ตามพื้นที่ */
+  gap: 5px; /* ระยะห่างระหว่างกล่อง */
+}
+
+.card-text {
+  color: #878787;
+}
+.card-title {
+  color: #fff;
+}

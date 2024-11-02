@@ -1,0 +1,48 @@
+.home-container {
+  background-color: #171322; /* พื้นหลังสีดำ */
+  min-height: 70vh;
+  display: flex;
+  color: #fff; /* ฟอนต์สีขาว */
+  padding: 40px 20px; /* ระยะห่างจากขอบ */
+  animation: fadeIn 2s ease;
+}
+
+.profile-image {
+  max-width: 80%; /* ความกว้างสูงสุดของภาพ */
+  height: auto; /* สูงอัตโนมัติ */
+  border-radius: 10px; /* มุมโค้ง */
+}
+
+.text-container {
+  max-width: 700px; /* ตั้งค่าความกว้างสูงสุดของข้อความ */
+  margin: auto; /* จัดให้อยู่กลาง */
+  text-align: center; /* จัดข้อความกลาง */
+}
+
+.social-links {
+  margin-top: 20px; /* ระยะห่างจากข้อความ */
+}
+
+.social-links a {
+  color: #4c4460; /* สีของไอคอน */
+  transition: color 0.3s; /* การเปลี่ยนสีเมื่อ Hover */
+  font-size: 2rem; /* ขนาดไอคอน */
+}
+
+.social-links a:hover {
+  color: #705bd9; /* เปลี่ยนสีเมื่อ Hover */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.underlined-text {
+  text-decoration: underline;       /* สร้างเส้นใต้ */
+  text-decoration-color: #ffff00;   /* เปลี่ยนสีของเส้นใต้ */
+  text-decoration-thickness: 2px;   /* กำหนดความหนาของเส้น */
+}

@@ -1,0 +1,71 @@
+.about-me-section {
+  animation: fadeIn 2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.row {
+  width: 100%;
+}
+
+.skills-section {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skills-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.skills-list li svg {
+  margin-right: 10px;
+  color: #4c4460;
+  width: 36px;
+  height: 36px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.transcript-image {
+  width: 100%;
+  height: auto;
+  max-width: 600px; /* ปรับขนาดตามต้องการ */
+}
+
+.fade-in-animation {
+  animation: fadeIn 0.5s ease;
+}
+
+.pointerText {
+  color: #62617c;
+  text-decoration: underline;
+}
+.pointerText:hover {
+  cursor: pointer;
+  text-decoration: underline #bab4d1 1.5px;
+}
