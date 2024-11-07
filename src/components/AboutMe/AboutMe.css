@@ -15,6 +15,14 @@
   width: 100%;
 }
 
+.cvtranrow {
+  display: flex;
+  flex-direction: row; /* ทำให้จัดเรียงในแนวนอน */
+  gap: 10px; /* ระยะห่างระหว่าง divs */
+  align-items: center; /* จัดให้อยู่กลางแนวแกน y */
+}
+
+
 .skills-section {
   margin-top: 50px;
   text-align: center;
@@ -57,6 +65,12 @@
   max-width: 600px; /* ปรับขนาดตามต้องการ */
 }
 
+.resume-image {
+  width: 100%;
+  height: auto;
+  max-width: 600px; /* ปรับขนาดตามต้องการ */
+}
+
 .fade-in-animation {
   animation: fadeIn 0.5s ease;
 }
@@ -68,4 +82,18 @@
 .pointerText:hover {
   cursor: pointer;
   text-decoration: underline #bab4d1 1.5px;
+}
+
+.modal-custom {
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s; /* เพิ่ม transition ของ visibility */
+  opacity: 0; /* เริ่มต้นที่โปร่งใส */
+  transform: translateY(-20px); /* เริ่มต้นที่เลื่อนขึ้น */
+  visibility: hidden; /* เริ่มต้นเป็น hidden */
+}
+
+.modal-custom.show {
+  opacity: 1; /* ปรับให้ทึบเต็มที่เมื่อแสดง */
+  transform: translateY(0); /* คืนค่าการเลื่อนเมื่อแสดง */
+  visibility: visible; /* แสดง modal */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* เปลี่ยน visibility เป็นทันที */
 }

@@ -12,11 +12,11 @@ const Projects = () => {
       skills: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     },
     {
-      name: "Project Coder",
+      name: "Food Recommendation App",
       description: "Software Engineer Class Project.",
       content:
-        "• Played a key role as the primary coder in a team-based project for a Software Engineer course.<br /><br />• Responsible for front-end development using PHP to create interactive and interfaces.<br /><br />• Implementing and maintaining back-end functionality using MySQL to manage and store data efficiently.",
-      skills: ["HTML", "CSS", "PHP", "MySQL"],
+        "• Played a key role as the primary coder in a team-based project for a Software Engineer course.<br /><br />• Responsible for front-end development using Flutter Framework to create interactive and interfaces.<br /><br />• Implementing and maintaining back-end functionality using PHP and MySQL to manage and store data efficiently.",
+      skills: ["Flutter", "HTML", "CSS", "PHP", "MySQL"],
     },
     {
       name: "Thesis Project",
@@ -41,6 +41,47 @@ const Projects = () => {
       setSelectedProject(null);
     }, 300);
   };
+  const createContentWithLinks = (content) => {
+    return content.split("<br />").map((line, index) => {
+      // ตรวจสอบว่ามี URL ที่ต้องแปลงเป็นลิงก์หรือไม่
+      const githubLinkPattern = /(https?:\/\/[^\s]+)/g;
+      const parts = line.split(githubLinkPattern);
+
+      return (
+        <p key={index}>
+          {parts.map((part, i) =>
+            githubLinkPattern.test(part) ? (
+              <a href={part} target="_blank" rel="noopener noreferrer" key={i}>
+                {part}
+              </a>
+            ) : (
+              part
+            )
+          )}
+        </p>
+      );
+    });
+  };
+
+  // ส่วนการแสดงผลใน Modal
+  <Modal.Body>
+    {selectedProject ? (
+      <>
+        <div>{createContentWithLinks(selectedProject.content)}</div>
+        <div className="skills-container">
+          <div className="skills-list">
+            {selectedProject.skills.map((tech, index) => (
+              <div className="skills-box" key={index}>
+                {tech}
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
+    ) : (
+      ""
+    )}
+  </Modal.Body>;
 
   return (
     <div className="projects-section mt-5">
@@ -76,11 +117,7 @@ const Projects = () => {
         <Modal.Body>
           {selectedProject ? (
             <>
-              <div>
-                {selectedProject.content.split("<br />").map((line, index) => (
-                  <p key={index}>{line}</p>
-                ))}
-              </div>
+              <div>{createContentWithLinks(selectedProject.content)}</div>
               <div className="skills-container">
                 <div className="skills-list">
                   {selectedProject.skills.map((tech, index) => (

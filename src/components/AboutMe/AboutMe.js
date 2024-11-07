@@ -9,15 +9,19 @@ import {
   FaGithub,
   FaPython,
   FaFigma,
+  FaJava,
 } from "react-icons/fa";
 import { SiFlutter, SiMysql, SiPhp } from "react-icons/si";
 import { RiFirebaseFill } from "react-icons/ri";
 
 const AboutMe = () => {
   const [showTranscript, setShowTranscript] = useState(false);
+  const [showCV, setShowCV] = useState(false);
 
   const handleShowTranscript = () => setShowTranscript(true);
   const handleCloseTranscript = () => setShowTranscript(false);
+  const handleShowCV = () => setShowCV(true);
+  const handleCloseCV = () => setShowCV(false);
 
   return (
     <div className="about-me-section container-fluid">
@@ -33,7 +37,14 @@ const AboutMe = () => {
             highly motivated and possess a strong desire to learn, constantly
             seeking out new knowledge and opportunities for growth.
           </p>
-          <p className="pointerText" onClick={handleShowTranscript}>My transcript</p>
+          <div className="cvtranrow">
+            <div className="pointerText" onClick={handleShowCV}>
+              My Resume
+            </div>
+            <div className="pointerText" onClick={handleShowTranscript}>
+              My transcript
+            </div>
+          </div>
         </div>
         <div className="skills-section">
           <h4>My Skills</h4>
@@ -43,6 +54,9 @@ const AboutMe = () => {
             </li>
             <li>
               <FaCss3Alt /> CSS
+            </li>
+            <li>
+              <FaJava /> Java
             </li>
             <li>
               <FaJsSquare /> JavaScript
@@ -74,12 +88,31 @@ const AboutMe = () => {
           </ul>
         </div>
       </div>
+      {/* Modal for Resume */}
+      <Modal
+        show={showCV}
+        onHide={handleCloseCV}
+        className="modal-custom"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>My Resume</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="fade-in-animation">
+          <img src="../MyResume.jpg" alt="My Resume" className="resume-image" />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseCV}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       {/* Modal for transcript */}
       <Modal
         show={showTranscript}
         onHide={handleCloseTranscript}
-        className="transcript-modal"
+        className="modal-custom"
         centered
       >
         <Modal.Header closeButton>
