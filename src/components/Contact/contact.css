@@ -26,3 +26,32 @@ form .form-control:focus {
   cursor: pointer;
   text-decoration: underline #bab4d1 1.5px;
 }
+
+.contact-info span {
+  display: inline-block;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-icon {
+  font-size: 1.5em;
+  color: #4c4460;
+  /* สีของไอคอน */
+}
+
+.separator {
+  font-size: 1.5em;
+  color: #333; /* สีของเส้นคั่น */
+  font-weight: bold;
+}

@@ -1,48 +1,205 @@
 .home-container {
-  background-color: #171322; /* พื้นหลังสีดำ */
-  min-height: 70vh;
+  background-color: #171322;
   display: flex;
-  color: #fff; /* ฟอนต์สีขาว */
-  padding: 40px 20px; /* ระยะห่างจากขอบ */
-  animation: fadeIn 2s ease;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease-in;
+  opacity: 1;
 }
-
-.profile-image {
-  max-width: 80%; /* ความกว้างสูงสุดของภาพ */
-  height: auto; /* สูงอัตโนมัติ */
-  border-radius: 10px; /* มุมโค้ง */
-}
-
-.text-container {
-  max-width: 700px; /* ตั้งค่าความกว้างสูงสุดของข้อความ */
-  margin: auto; /* จัดให้อยู่กลาง */
-  text-align: center; /* จัดข้อความกลาง */
-}
-
-.social-links {
-  margin-top: 20px; /* ระยะห่างจากข้อความ */
-}
-
-.social-links a {
-  color: #4c4460; /* สีของไอคอน */
-  transition: color 0.3s; /* การเปลี่ยนสีเมื่อ Hover */
-  font-size: 2rem; /* ขนาดไอคอน */
-}
-
-.social-links a:hover {
-  color: #705bd9; /* เปลี่ยนสีเมื่อ Hover */
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
-.underlined-text {
-  text-decoration: underline;       /* สร้างเส้นใต้ */
-  text-decoration-color: #ffff00;   /* เปลี่ยนสีของเส้นใต้ */
-  text-decoration-thickness: 2px;   /* กำหนดความหนาของเส้น */
+
+/* Add animated background gradient */
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: gradientBG 15s ease infinite;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 800px;
+  text-align: center;
+}
+.content-wrapper > * {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.greeting-text {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #a24f74;
+}
+
+.name-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  color: #64a3ca;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #a24f74, #64a3ca);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underlineAnimation 1s forwards 1s;
+}
+
+.role-text {
+  font-size: 1.5rem;
+  color: #b8b8b8;
+  margin-bottom: 2rem;
+}
+
+.bio-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #999;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(45deg, #a24f74, #64a3ca);
+  border: none;
+  color: white;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid #64a3ca;
+  color: #64a3ca;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.social-links a {
+  font-size: 1.8rem;
+  color: #64a3ca;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #a24f74;
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes underlineAnimation {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .greeting-text {
+    font-size: 2.5rem;
+  }
+
+  .name-title {
+    font-size: 2rem;
+  }
+
+  .role-text {
+    font-size: 1.2rem;
+  }
+
+  .bio-text {
+    font-size: 1rem;
+  }
+}
+.content-wrapper > *:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.content-wrapper > *:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.content-wrapper > *:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.content-wrapper > *:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.content-wrapper > *:nth-child(5) {
+  animation-delay: 1s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

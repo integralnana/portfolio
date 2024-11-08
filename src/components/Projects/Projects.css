@@ -1,87 +1,199 @@
 .projects-section {
-  animation: fadeIn 2s ease;
+  position: relative;
+  padding: 0 20px;
+}
+
+.project-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+}
+
+.project-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .project-card {
   background-color: #0e0b14;
   cursor: pointer;
-  transition: transform 0.3s;
-  transition: background-color 0.3s;
-  border-radius: 10px;
+  transition: transform 0.3s, background-color 0.3s;
+  border-radius: 15px;
+  width: calc(50% - 20px);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+}
+
+.project-card.fade-in {
+  animation: fadeInUp 0.6s ease forwards;
 }
 
 .project-card:hover {
   background-color: #1b1729;
-  transform: scale(1.05);
+  transform: translateY(-5px);
 }
 
-@keyframes fadeIn {
+.project-year {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background-color: #2a1f3d;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@keyframes fadeInUp {
   0% {
     opacity: 0;
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.modal-custom {
-  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s; /* เพิ่ม transition ของ visibility */
-  opacity: 0; /* เริ่มต้นที่โปร่งใส */
-  transform: translateY(-20px); /* เริ่มต้นที่เลื่อนขึ้น */
-  visibility: hidden; /* เริ่มต้นเป็น hidden */
+.center-divider {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  top: 0;
+  bottom: 0;
 }
 
-.modal-custom.show {
-  opacity: 1; /* ปรับให้ทึบเต็มที่เมื่อแสดง */
-  transform: translateY(0); /* คืนค่าการเลื่อนเมื่อแสดง */
-  visibility: visible; /* แสดง modal */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* เปลี่ยน visibility เป็นทันที */
+.project-row:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.project-row:nth-child(even) {
+  flex-direction: row;
+}
+
+/* Modal Styles */
+.modal {
+  transition: opacity 0.15s linear;
+}
+.modal.fade {
+  opacity: 0;
+}
+.modal.show {
+  opacity: 1;
+}
+.modal-dialog {
+  transition: transform 0.2s ease-out;
+}
+.modal.fade .modal-dialog {
+  transform: translateY(-25px);
+}
+.modal.show .modal-dialog {
+  transform: translateY(0);
 }
 
 .modal-content {
-  background-color: #0e0b14; /* พื้นหลังสีดำ */
-  color: #fff; /* ฟอนต์เป็นสีขาว */
-}
-.modal-content {
-  background-color: #0e0b14; /* พื้นหลังสีดำ */
-  color: #fff; /* ฟอนต์เป็นสีขาว */
-}
-.modal-footer .btn {
-  background-color: #0f0c14; /* เปลี่ยนสีพื้นหลังของปุ่ม */
+  background-color: #0e0b14;
   color: #fff;
-  border: #0f0c14;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  transition: opacity 0.15s linear;
+}
+.modal.fade .modal-content {
+  opacity: 0;
 }
 
-.modal-footer .btn:hover{
-  background-color: #2f2c33; /* เปลี่ยนสีพื้นหลังของปุ่ม */
-  color: #fff;
+.modal.show .modal-content {
+  opacity: 1;
 }
 
+.modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* Skills Styles */
 .skills-container {
-  margin-top: 10px;
+  margin-top: 15px;
 }
+
 .skills-box {
-  background-color: #f8f9fa; /* สีพื้นหลังของกล่อง */
-  color: #000; /* สีข้อความ */
-  font-size: small;
-  padding: 5px 7px; /* ระยะห่างภายใน */
-  border-radius: 10px; /* ขอบมน */
-  font-weight: 500; /* หนักตัวอักษร */
-  transition: background-color 0.3s; /* การเปลี่ยนสีพื้นหลังเมื่อโฮเวอร์ */
+  background-color: #2a1f3d;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+
 }
+
 .skills-box:hover {
-  background-color: #babec3; /* สีพื้นหลังเมื่อ hover */
+  background-color: #3d2d57;
 }
 
 .skills-list {
   display: flex;
-  flex-wrap: wrap; /* เพื่อให้สามารถจัดเรียงได้ตามพื้นที่ */
-  gap: 5px; /* ระยะห่างระหว่างกล่อง */
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
+/* Card Content Styles */
 .card-text {
-  color: #878787;
+  color: #a8a8a8;
+  font-size: 0.95rem;
+  margin: 12px 0;
 }
+
 .card-title {
   color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Link Styles */
+a {
+  color: #9f7aea;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #b794f4;
+}
+
+/* Modal Close Button */
+.modal-header .close {
+  color: #fff;
+  opacity: 0.7;
+}
+
+.modal-header .close:hover {
+  opacity: 1;
+}
+
+.modal-body {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
