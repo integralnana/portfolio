@@ -51,6 +51,85 @@
   font-weight: 500;
 }
 
+.image-gallery {
+  margin-bottom: 20px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-image {
+  width: 35%;
+  height: 30%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.main-image img {
+  width: 100%;
+  height: auto; /* เปลี่ยนจาก 100% เป็น auto */
+  object-fit: contain; /* เปลี่ยนจาก cover เป็น contain */
+  display: block; /* เพิ่มเพื่อป้องกัน extra space ด้านล่าง */
+}
+
+.thumbnail-container {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  flex-shrink: 0;
+  border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+  opacity: 0.8;
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: #9f7aea;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hide scrollbar for thumbnail container */
+.thumbnail-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.thumbnail-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.thumbnail-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.thumbnail-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -131,7 +210,7 @@
   font-weight: 600;
 }
 
-/* Skills Styles */
+/* Other styles remain the same */
 .skills-container {
   margin-top: 15px;
 }
@@ -144,7 +223,6 @@
   border-radius: 8px;
   font-weight: 500;
   transition: background-color 0.3s;
-
 }
 
 .skills-box:hover {
@@ -157,7 +235,6 @@
   gap: 8px;
 }
 
-/* Card Content Styles */
 .card-text {
   color: #a8a8a8;
   font-size: 0.95rem;
@@ -171,7 +248,6 @@
   margin-bottom: 10px;
 }
 
-/* Link Styles */
 a {
   color: #9f7aea;
   text-decoration: none;
@@ -182,7 +258,6 @@ a:hover {
   color: #b794f4;
 }
 
-/* Modal Close Button */
 .modal-header .close {
   color: #fff;
   opacity: 0.7;
@@ -193,7 +268,26 @@ a:hover {
 }
 
 .modal-body {
+  padding: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
+}
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-image {
+  max-height: 90vh;
+  max-width: 90vw;
+  object-fit: contain;
 }
