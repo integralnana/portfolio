@@ -29,7 +29,15 @@ const ImageGallery = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const toggleFullscreen = () => setIsFullscreen(!isFullscreen);
+  const toggleFullscreen = (e) => {
+    e.stopPropagation();
+    setIsFullscreen(!isFullscreen);
+  };
+
+  const handleFullscreenImageClick = (e) => {
+    e.stopPropagation();
+    setIsFullscreen(false);
+  };
 
   return (
     <div className="image-gallery">
@@ -58,7 +66,7 @@ const ImageGallery = ({ images }) => {
             src={images[selectedImage]}
             alt={`Fullscreen ${selectedImage + 1}`}
             className="fullscreen-image"
-            onClick={(e) => e.stopPropagation()}
+            onClick={handleFullscreenImageClick}
           />
         </div>
       )}
