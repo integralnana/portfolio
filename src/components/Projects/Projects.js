@@ -78,7 +78,7 @@ const Projects = () => {
   const projectList = [
     {
       name: "Thesis Project",
-      year: "Jul 2024 - Present",
+      year: "Jul 2024 - Nov 2024",
       description: "Developed an application for sharing product purchases.",
       content:
         "• Developed a mobile application using Flutter and Firebase for users to share product purchases.<br /><br />• Integrated Google Maps API to provide location-based services and enhance user experience.<br /><br />• Implemented real-time database and authentication using Firebase, ensuring data security and user management.<br /><br />• Built an admin dashboard using React for managing users, products, and transactions.<br /><br />• https://github.com/integralnana/Project_Mobileapp.git",

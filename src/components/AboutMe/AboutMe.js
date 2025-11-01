@@ -7,10 +7,8 @@ import {
   FaReact,
   FaGithub,
   FaPython,
-  FaFigma,
-  FaJava,
 } from "react-icons/fa";
-import { SiFlutter, SiMysql, SiPhp } from "react-icons/si";
+import { SiMysql, SiPhp } from "react-icons/si";
 import { RiFirebaseFill } from "react-icons/ri";
 import { ZoomIn, ZoomOut } from "lucide-react";
 import "./AboutMe.css";
@@ -23,21 +21,18 @@ const AboutMe = () => {
   const skills = [
     { icon: <FaHtml5 />, name: "HTML" },
     { icon: <FaCss3Alt />, name: "CSS" },
-    { icon: <FaJava />, name: "Java" },
     { icon: <FaJsSquare />, name: "JavaScript" },
     { icon: <FaReact />, name: "React" },
     { icon: <FaGithub />, name: "GitHub" },
-    { icon: <SiFlutter />, name: "Flutter" },
     { icon: <SiMysql />, name: "MySQL" },
     { icon: <RiFirebaseFill />, name: "Firebase" },
     { icon: <SiPhp />, name: "PHP" },
     { icon: <FaPython />, name: "Python" },
-    { icon: <FaFigma />, name: "Figma" },
   ];
 
   const education = [
     {
-      year: "Jul 2021 - Present",
+      year: "Jul 2021 - Apr 2025",
       title: "Bachelor's Degree in Electronics Engineering (Computer)",
       institution: "King Mongkut's University of Technology North Bangkok",
     },
@@ -68,12 +63,12 @@ const AboutMe = () => {
         </div>
         <div className="profile-info">
           <h1>Nawaphol Srichuwong</h1>
-          <h3>Front-End Developer</h3>
           <p>
-            I am a fourth-year student with a keen interest in software
-            development with a passion for frontend and web development. I am
-            highly motivated and possess a strong desire to learn, constantly
-            seeking out new knowledge and opportunities for growth.
+            I am a graduated student with a keen interest in software
+            development with strong interest in IT support and system
+            maintenance. I am highly motivated and possess a strong desire to
+            learn, constantly seeking out new knowledge and opportunities for
+            growth.
           </p>
           <div className="profile-buttons">
             <button onClick={() => setShowCV(true)} className="main-button">
@@ -163,23 +158,26 @@ const AboutMe = () => {
       >
         <Modal.Header closeButton>
           <Modal.Title>My Transcript</Modal.Title>
-          <div className="zoom-controls">
-            <button onClick={handleZoomOut} className="zoom-button">
-              <ZoomOut className="w-4 h-4" />
-            </button>
-            <button onClick={handleZoomIn} className="zoom-button">
-              <ZoomIn className="w-4 h-4" />
-            </button>
-          </div>
         </Modal.Header>
         <Modal.Body className="modal-body">
           <div
             className="image-container"
-            style={{ transform: `scale(${zoomLevel})` }}
+            style={{
+              transform: `scale(${zoomLevel})`,
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+            }}
           >
             <img
               src="../MyTranscript.jpg"
               alt="My Transcript"
+              className="modal-image"
+              onClick={resetZoom}
+            />
+            <img
+              src="../MyTranscript2.jpg"
+              alt="My Transcript2"
               className="modal-image"
               onClick={resetZoom}
             />

@@ -22,16 +22,6 @@ const Home = () => {
             I am <span className="highlight">Nawaphol Srichuwong</span>
           </h1>
           
-          <div className="role-text">
-            <TypeAnimation
-              sequence={[
-                'Frontend Developer 💻', 2000,
-                
-              ]}
-              repeat={Infinity}
-            />
-          </div>
-
           <p className="bio-text">
             Welcome to my Portfolio, Please enjoy my represent!
           </p>
